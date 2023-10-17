@@ -1,0 +1,20 @@
+package com.car;
+public class carSolution
+{
+	public double amount;
+	void instPremium()
+	{
+		amount=amount+(amount*20)/100;
+	}
+    public carSolution(String m,String ct,double n,String inst)
+    {
+        if(ct.equalsIgnoreCase("Hatchback"))
+        	amount=(n*5)/100;
+        else if(ct.equalsIgnoreCase("Sedan"))
+        	amount=(n*8)/100;
+        else if(ct.equalsIgnoreCase("SUV"))
+        	amount=(n*10)/100;
+        if(inst.equalsIgnoreCase("Premium"))
+        	instPremium();
+    }
+}

@@ -1,0 +1,64 @@
+package com.carInsurance;
+import com.car.*;
+import java.util.*;
+public class Main
+{
+    public static void main(String[] args)
+    {
+    	String s[]=new String[4];
+    	double costPrice=0.0;
+    	Scanner sc=new Scanner(System.in);
+    	do
+    	{
+    		System.out.println("Enter car model: ");
+    		s[0]=sc.nextLine();
+    		for(int i=0;;i++)
+    		{
+    			System.out.println("Enter car type: ");
+    			s[1]=sc.nextLine();
+    			if(s[1].equalsIgnoreCase("Hatchback")||s[1].equalsIgnoreCase("Sedan")||s[1].equalsIgnoreCase("SUV"))
+    				break;
+    			else
+    				System.out.println("Invalid car type >>>");
+    		}
+    		for(int i=0;;i++)
+    		{
+    			System.out.println("Enter cost price: ");
+    			try
+    			{
+    				costPrice=sc.nextDouble();
+    				break;
+    			}
+    			catch(Exception e)
+    			{
+    				System.out.println("ERROR: "+e);
+    			}
+    		}
+    		sc.nextLine();
+    		for(int i=0;;i++)
+    		{
+    			int instCheck=1;
+    			if(instCheck==0)
+    				System.out.println("Invalid insurance type >>>");
+    			System.out.println("Enter insurance type: ");
+    			s[2]=sc.nextLine();
+    			if(s[2].equalsIgnoreCase("Basic")||s[2].equalsIgnoreCase("Premium"))
+    				break;
+    			else
+    				instCheck=0;
+    		}
+    		carSolution obj=new carSolution(s[0],s[1],costPrice,s[2]);
+    		System.out.println("Insurance calculated: "+obj.amount);
+    		System.out.println("Do you want to enter another detail(Y/N): ");
+    		for(int i=0;;i++)
+    		{
+    			s[3]=sc.nextLine();
+    			if(s[3].equalsIgnoreCase("Y")||s[3].equalsIgnoreCase("N"))
+    				break;
+    			else
+    				System.out.println("Invalid choice >>>");
+    		}
+    	}
+    	while(s[3].equalsIgnoreCase("Y"));
+    }
+}
